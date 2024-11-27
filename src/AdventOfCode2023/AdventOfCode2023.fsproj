@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Solver\DayXY.fs" />
+    <Compile Include="Solver\Day1.fs" />
+    <Compile Include="Solver\Day2.fs" />
+    <Compile Include="Solver\Day3.fs" />
+    <Compile Include="Solver\Day4.fs" />
+    <Compile Include="Solver\Day5.fs" />
+    <Compile Include="Solver\Day6.fs" />
+    <Compile Include="Solver\Day7.fs" />
+    <Compile Include="Solver\Day8.fs" />
+    <Compile Include="Solver\Day9.fs" />
+    <Compile Include="Solver\Day10.fs" />
+    <Compile Include="Solver\Day11.fs" />
+    <Compile Include="Program.fs" />
+    <Content Include="Properties\launchSettings.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AdventOfCodeHelpers\AdventOfCodeHelpers.fsproj" />
+  </ItemGroup>
+</Project>
