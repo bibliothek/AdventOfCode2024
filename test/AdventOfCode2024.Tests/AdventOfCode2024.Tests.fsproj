@@ -5,18 +5,7 @@
     <GenerateProgramFile>false</GenerateProgramFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Day11Tests.fs" />
-    <Compile Include="Day10Tests.fs" />
-    <Compile Include="Day9Tests.fs" />
-    <Compile Include="Day8Tests.fs" />
-    <Compile Include="Day7Tests.fs" />
-    <Compile Include="Day6Tests.fs" />
-    <Compile Include="Day5Tests.fs" />
-    <Compile Include="Day4Tests.fs" />
-    <Compile Include="Day3Tests.fs" />
-    <Compile Include="Day2Tests.fs" />
     <Compile Include="DayXYTests.fs" />
-    <Compile Include="Day1Tests.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
@@ -31,6 +20,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\AdventOfCode2023\AdventOfCode2023.fsproj" />
+    <ProjectReference Include="..\..\src\AdventOfCode2024\AdventOfCode2024.fsproj" />
   </ItemGroup>
 </Project>

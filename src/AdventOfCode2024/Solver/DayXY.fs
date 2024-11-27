@@ -1,4 +1,4 @@
-﻿module AdventOfCode2023.Solver.DayXY
+﻿module AdventOfCode2024.Solver.DayXY
 
 let solver1 (lines: string array) =
     failwith "error"

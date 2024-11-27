@@ -1,6 +1,6 @@
-﻿module AdventOfCode2023.Tests.DayXYTests
+﻿module AdventOfCode2024.Tests.DayXYTests
 
-open AdventOfCode2023.Solver
+open AdventOfCode2024.Solver
 open Xunit
 
 type DayXYTest() =

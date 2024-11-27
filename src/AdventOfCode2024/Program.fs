@@ -1,7 +1,7 @@
 ﻿open System.Reflection
 
 let getSolver (day, part) =
-    let ``module`` = Assembly.GetExecutingAssembly().GetType($"AdventOfCode2023.Solver.Day{day}")
+    let ``module`` = Assembly.GetExecutingAssembly().GetType($"AdventOfCode2024.Solver.Day{day}")
     ``module``.GetMethod($"solver{part}")
 
 let getLines day = 
