@@ -1,3 +1,4 @@
+#! /snap/bin/pwsh
 [CmdletBinding()]
 param (
     [Parameter(Mandatory = $true)]
