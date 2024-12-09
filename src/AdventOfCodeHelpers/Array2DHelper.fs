@@ -59,19 +59,57 @@ let getHorizontalAndVerticalNeighbours map pos =
     [| (x + 1, y); (x - 1, y); (x, y + 1); (x, y - 1) |]
     |> Array.filter (fun (x, y) -> x >= 0 && x < Array2D.length1 map && y >= 0 && y < Array2D.length2 map)
 
+let isInBounds map pos =
+    let x = pos.x
+    let y = pos.y
+
+    x >= 0 && x < Array2D.length1 map && y >= 0 && y < Array2D.length2 map
+
 let tryGetWithDirection map pos direction =
     let x = pos.x
     let y = pos.y
 
     match direction with
-    | Up -> if y - 1 < 0 then None else Some (Array2D.get map (x) (y-1), {x= x; y = y-1})
-    | Down -> if y + 1 >= Array2D.length2 map then None else Some (Array2D.get map (x) (y+1), {x= x; y = y+1})
-    | Left -> if x - 1 < 0 then None else Some (Array2D.get map (x-1) y, {x= x-1; y = y})
-    | Right -> if x + 1 >= Array2D.length1 map then None else Some (Array2D.get map (x+1) y, {x= x+1; y = y})
-    | UpLeft -> if y - 1 < 0 || x - 1 < 0 then None else Some (Array2D.get map (x-1) (y-1), {x= x-1; y = y-1})
-    | UpRight -> if y - 1 < 0 || x + 1 >= Array2D.length1 map then None else Some (Array2D.get map (x+1) (y-1), {x= x+1; y = y-1})
-    | DownLeft -> if y + 1 >= Array2D.length2 map || x - 1 < 0 then None else Some (Array2D.get map (x-1) (y+1), {x= x-1; y = y+1})
-    | DownRight -> if y + 1 >= Array2D.length2 map || x + 1 >= Array2D.length1 map then None else Some (Array2D.get map (x+1) (y+1), {x= x+1; y = y+1})
+    | Up ->
+        if y - 1 < 0 then
+            None
+        else
+            Some(Array2D.get map (x) (y - 1), { x = x; y = y - 1 })
+    | Down ->
+        if y + 1 >= Array2D.length2 map then
+            None
+        else
+            Some(Array2D.get map (x) (y + 1), { x = x; y = y + 1 })
+    | Left ->
+        if x - 1 < 0 then
+            None
+        else
+            Some(Array2D.get map (x - 1) y, { x = x - 1; y = y })
+    | Right ->
+        if x + 1 >= Array2D.length1 map then
+            None
+        else
+            Some(Array2D.get map (x + 1) y, { x = x + 1; y = y })
+    | UpLeft ->
+        if y - 1 < 0 || x - 1 < 0 then
+            None
+        else
+            Some(Array2D.get map (x - 1) (y - 1), { x = x - 1; y = y - 1 })
+    | UpRight ->
+        if y - 1 < 0 || x + 1 >= Array2D.length1 map then
+            None
+        else
+            Some(Array2D.get map (x + 1) (y - 1), { x = x + 1; y = y - 1 })
+    | DownLeft ->
+        if y + 1 >= Array2D.length2 map || x - 1 < 0 then
+            None
+        else
+            Some(Array2D.get map (x - 1) (y + 1), { x = x - 1; y = y + 1 })
+    | DownRight ->
+        if y + 1 >= Array2D.length2 map || x + 1 >= Array2D.length1 map then
+            None
+        else
+            Some(Array2D.get map (x + 1) (y + 1), { x = x + 1; y = y + 1 })
 
 let tryGetLeft map pos = tryGetWithDirection map pos Left
 
@@ -98,9 +136,10 @@ let getDirection pos1 pos2 =
         if pos1.y = pos2.y then Right
         elif pos1.y > pos2.y then UpRight
         else DownRight
+    else if pos1.y > pos2.y then
+        Up
     else
-        if pos1.y > pos2.y then Up
-        else Down
+        Down
 
 let getNeighboursIncludingDiagonal map pos =
     let up = (tryGetUp map pos)
